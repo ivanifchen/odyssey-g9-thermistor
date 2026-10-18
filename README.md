@@ -10,6 +10,8 @@ The page has a to-scale drawing of the whole board, a close-up photo with the pa
 
 Once removed, P301 reads about 28 to 33 kΩ, not the 10 kΩ of THA1. Removing it permanently disables the T-con's overheat cutoff. Among owners who named this board, removal fixed 6 of 14 monitors.
 
+The page also links disassembly videos for newcomers and lists what to check if removing P301 does not fix the monitor.
+
 ## Credits
 
 - [u/OccasionalBrat](https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/lv5uecq/) posted the P301 photo and [pointed out that it is under tape](https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/mavnzxl/).

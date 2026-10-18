@@ -186,9 +186,33 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
     <p>To double-check the spot, look for these labels. <code>ZC503</code> is just above the group. <code>R354</code>, <code>R352</code>, <code>P301</code>, and <code>R353</code> are printed to its right. <code>R507</code>, <code>R505</code>, <code>R504</code>, and <code>R510</code> are to its left, and the 8-pin chip <code>IC702</code> is below and to the left.</p>
   </section>
 
+  <section>
+    <h2>New to this repair? Start here</h2>
+    <p>These get you from a closed monitor to the T-con, in order.</p>
+    <ol>
+      <li>Read <a href="https://samsungparts.com/blogs/monitor/ls49ag952nnxza" target="_blank" rel="noopener">Samsung's official repair guide for this model</a>. It covers disassembly down to the main board and power supply, but not the T-con.</li>
+      <li>Remove the stand. Watch <a href="https://www.youtube.com/watch?v=1ZRlyf6X1KI" target="_blank" rel="noopener">"How To REMOVE STAND on Samsung G9 Monitor"</a> by No Waffling.</li>
+      <li>Remove the back cover. Watch <a href="https://www.youtube.com/watch?v=khZvtF7QRwk" target="_blank" rel="noopener">"How to take off the back cover of Samsung Odyssey G9 monitor (LS49AG952NNXZA, most LC49G9 models)"</a> by Coppell TV Repair. It shows this exact model.</li>
+    </ol>
+    <p>For background on the fault and the fix, see these.</p>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=Cz4uRrf5JXc" target="_blank" rel="noopener">My Mate VINCE's repair video</a> diagnoses an original G9 and removes THA1.</li>
+      <li>The <a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/" target="_blank" rel="noopener">r/AskElectronics thread</a> is where the thermistor fix started.</li>
+      <li><a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen" target="_blank" rel="noopener">danieljbk's report</a> covers causes, outcomes, and part numbers.</li>
+    </ul>
+    <p class="cap">The power board carries mains voltage, so unplug the monitor and wait several minutes before touching anything. The ribbon cables and the curved panel are fragile. Opening the monitor ends any warranty claim.</p>
+  </section>
+
   <section class="warn">
-    <p><strong>Results on this board are mixed</strong></p>
-    <p>Among owners who named their board, removing P301 fixed 6 monitors and did not fix 8. Some failures were a shorted capacitor on the small panel boards under the white strip along the bottom edge. Removal permanently disables the T-con's overheat cutoff.</p>
+    <h2>If removing P301 did not fix it</h2>
+    <p>Among owners who named this board, removing P301 fixed 6 monitors and did not fix 8. Removal also permanently disables the T-con's overheat cutoff.</p>
+    <ol>
+      <li>Test the monitor before you put the back cover on. Connect only the power cable. A "No signal" message means the panel is running. A black screen means another fault.</li>
+      <li>If you have a multimeter, check for a shorted capacitor. Lift the white strip along the bottom edge of the panel and test the capacitors on the small boards there for a short to ground. Eight owners found a shorted capacitor there, and four of them had already removed the thermistor. Removing the shorted capacitor fixed it. <a href="https://www.youtube.com/watch?v=hWm5tb49yCE" target="_blank" rel="noopener">"REPAIR FOR SAMSUNG ODYSSEY G9 49 Inch"</a> by Console Hub is one example.</li>
+      <li>Don't buy a replacement T-con first. Nine owners of 49-inch models report a new T-con changed nothing, and three of them also replaced the main board and power supply with no change.</li>
+      <li>If none of that helps, the panel itself may have failed. Three owners had their monitor fixed with a new panel. Owners report quotes of about €800 to €1,000 for the panel. If the monitor is still under warranty, that is the time to use it.</li>
+    </ol>
+    <p>Other causes are in the <a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen" target="_blank" rel="noopener">danieljbk report</a>.</p>
   </section>
 
   <section class="credits">
