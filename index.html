@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neo G9 thermistor P301</title>
-<meta name="description" content="Where the black-screen thermistor P301 is on the newer Samsung Odyssey Neo G9 T-con (BN41-02934A), for people who watched the THA1 videos for the original G9.">
+<title>Odyssey G9 thermistor P301</title>
+<meta name="description" content="Where the black-screen thermistor P301 is on the newer Samsung Odyssey G9 T-con (BN41-02934A), for people who watched the THA1 videos made on the older board.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
@@ -106,9 +106,9 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 <body>
 <div class="wrap">
   <header>
-    <div class="eyebrow">Odyssey Neo G9 · newer T-con · OSCAR_T_TCON_MNT</div>
+    <div class="eyebrow">Odyssey G9 · newer T-con · OSCAR_T_TCON_MNT</div>
     <h1>No THA1 on your board? The thermistor is P301.</h1>
-    <p class="lede">The repair videos show the original G9 T-con, with THA1 on a slotted tab in the upper-left corner, above RA13 and RA14. Your board does not match. On the newer board the part to remove is P301, in the top-right corner.</p>
+    <p class="lede">The repair videos show the older G9 T-con, with THA1 on a slotted tab in the upper-left corner, above RA13 and RA14. Your board does not match. On the newer board the part to remove is P301, in the top-right corner.</p>
   </header>
 
   <section>
@@ -118,10 +118,10 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
         <thead><tr><th></th><th>Newer board</th><th>In the videos</th></tr></thead>
         <tbody>
           <tr><td>Printed on board</td><td class="yours"><code>OSCAR_T_TCON_MNT</code>, <code>BN41-02934A</code>, upper-left</td><td><code>49DQ_JU11B4H26B_V03_HF</code></td></tr>
-          <tr><td>Sticker</td><td class="yours"><code>BN95-08081A</code> or <code>-B</code> (Neo G9), <code>BN95-07897A</code> or <code>BN95-07925A</code> (G9)</td><td><code>BN96-51198A</code></td></tr>
+          <tr><td>Sticker</td><td class="yours"><code>BN95-08081A</code>, <code>BN95-08081B</code>, <code>BN95-07897A</code>, or <code>BN95-07925A</code></td><td><code>BN96-51198A</code></td></tr>
           <tr><td>Thermistor</td><td class="yours">P301, top-right, at the edge of the tape strip</td><td>THA1, top-left tab, above RA13 and RA14</td></tr>
           <tr><td>Reads once removed</td><td class="yours">about 28 to 33 kΩ (Samsung part 1404-001731, 33 kΩ NTC)</td><td>about 10 to 12 kΩ</td></tr>
-          <tr><td>Neo G9 versions</td><td class="yours">CB02 to CF08</td><td>CA01</td></tr>
+          <tr><td>Version code (S49AG95 models)</td><td class="yours">CB02 to CF08</td><td>CA01</td></tr>
         </tbody>
       </table>
     </div>
@@ -176,7 +176,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
   <section>
     <h2>Finding it on your board</h2>
     <ol>
-      <li>Get to the T-con as in the videos. On the Neo G9 it can sit under a metal bracket in the middle. Leave the ribbon cables plugged in.</li>
+      <li>Get to the T-con as in the videos. On some units it sits under a metal bracket in the middle. Leave the ribbon cables plugged in.</li>
       <li>Look at the <strong>top-right</strong> corner of the board, not the top-left. A strip of tape runs along that edge. Lift it if it covers the corner.</li>
       <li>Just below the tape, above the tall ribbon connector on the right edge, find the gold square pad labeled <code>CN703</code>.</li>
       <li>Directly above CN703 is a group of four tiny parts. The leftmost one stands upright, has a dark body, and has no printed code. That part is P301. The other three have printed codes.</li>
@@ -196,7 +196,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
     </ol>
     <p>For background on the fault and the fix, see these.</p>
     <ul>
-      <li><a href="https://www.youtube.com/watch?v=Cz4uRrf5JXc" target="_blank" rel="noopener">My Mate VINCE's repair video</a> diagnoses an original G9 and removes THA1.</li>
+      <li><a href="https://www.youtube.com/watch?v=Cz4uRrf5JXc" target="_blank" rel="noopener">My Mate VINCE's repair video</a> diagnoses a G9 with the older board and removes THA1.</li>
       <li>The <a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/" target="_blank" rel="noopener">r/AskElectronics thread</a> is where the thermistor fix started.</li>
       <li><a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen" target="_blank" rel="noopener">danieljbk's report</a> covers causes, outcomes, and part numbers.</li>
     </ul>
@@ -219,7 +219,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
     <h2>Credits</h2>
     <ul>
       <li><b><a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/lv5uecq/" target="_blank" rel="noopener">u/OccasionalBrat</a></b> posted the P301 photo and <a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/mavnzxl/" target="_blank" rel="noopener">pointed out that it is under tape</a>.</li>
-      <li><b><a href="https://www.reddit.com/r/Monitors/comments/1o26wio/" target="_blank" rel="noopener">u/Sblombliz</a></b> photographed the BN95-08081A sticker that tied this board to the Neo G9.</li>
+      <li><b><a href="https://www.reddit.com/r/Monitors/comments/1o26wio/" target="_blank" rel="noopener">u/Sblombliz</a></b> photographed the BN95-08081A sticker that tied this board to the S49AG95 models.</li>
       <li><b><a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/" target="_blank" rel="noopener">u/alphanimal</a></b> published the original THA1 removal, and <b><a href="https://www.reddit.com/r/ultrawidemasterrace/comments/17lqe5e/comment/k88fr5b/" target="_blank" rel="noopener">u/East_Development_126</a></b> first traced the fault to the thermistor.</li>
       <li><b><a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen" target="_blank" rel="noopener">danieljbk</a></b> collected all of it in one report. <a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen/tree/42f718f1f37c9ec7e443d149e312ebaff20cace8" target="_blank" rel="noopener">Initial version, 6 October 2026</a>.</li>
     </ul>
