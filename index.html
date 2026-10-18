@@ -133,7 +133,10 @@ img { border-radius: 3px; }
   --cat-k: #1b1b1e; --cat-k-rim: #6f8a78; --cat-eye-o: #f2b632; --cat-eye-k: #c6e03c; --cat-pupil: #121212; --cat-whisk: #f4efe4;
 }
 @media (prefers-color-scheme: dark) { :root { --cat-k-rim: rgba(159,214,176,.7); --cat-o: #e0832c; } }
-.cats { display: flex; flex-direction: column; width: min(220px, 100%); margin: 20px 0 28px auto; pointer-events: none; }
+.cats { display: flex; flex-direction: column; position: fixed; z-index: 5; margin: 0; pointer-events: none;
+  width: 96px; right: calc(8px + env(safe-area-inset-right, 0px)); bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
+/* leave room so the cats never sit over the last lines of the page */
+@media (max-width: 1079px) { body { padding-bottom: 110px; } }
 .cat { display: block; width: 100%; height: auto; overflow: visible; }
 .cat.orange { --coat: var(--cat-o); --stripe: var(--cat-o-dark); --iris: var(--cat-eye-o); --rim: none; margin-top: -6px; }
 .cat.black { --coat: var(--cat-k); --stripe: var(--cat-k); --iris: var(--cat-eye-k); --rim: var(--cat-k-rim); }
