@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neo G9 thermistor P301</title>
+<meta name="description" content="Where the black-screen thermistor P301 is on the newer Samsung Odyssey Neo G9 T-con (BN41-02934A), for people who watched the THA1 videos for the original G9.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; a board check, the board drawing, the find-it sequence, then credits. */
+:root {
+  --bg: #f4f6f3;
+  --paper: #ffffff;
+  --fg: #1d2420;
+  --muted: #5d6a62;
+  --line: #cfd8d1;
+  --mask: #dfeee3;        /* solder-mask green, light */
+  --mask-edge: #4f8a61;
+  --silk: #2f6a43;        /* silkscreen text */
+  --part: #2a302c;
+  --part-2: #49514b;
+  --tape: #fff6d6;
+  --tape-edge: #b8901c;
+  --gold: #d9b04a;
+  --hot: #cf3a2f;         /* the part to remove */
+  --link: #2f5fb3;
+  --chip-bg: #e7efe9;
+  --on-part: #e4ece6;     /* text printed on dark parts */
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111613; --paper: #171e1a; --fg: #e3ebe5; --muted: #98a79d; --line: #2c3830;
+    --mask: #1c3526; --mask-edge: #5fa577; --silk: #9fd6b0; --part: #0a0d0b; --part-2: #3a443d;
+    --gold: #b8923a; --tape: #3a3418; --tape-edge: #d6b54a; --hot: #ff6b5c; --link: #8fb0f0; --chip-bg: #1f2b24; --on-part: #c3d2c8; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111613; --paper: #171e1a; --fg: #e3ebe5; --muted: #98a79d; --line: #2c3830;
+  --mask: #1c3526; --mask-edge: #5fa577; --silk: #9fd6b0; --part: #0a0d0b; --part-2: #3a443d;
+  --gold: #b8923a; --tape: #3a3418; --tape-edge: #d6b54a; --hot: #ff6b5c; --link: #8fb0f0; --chip-bg: #1f2b24; --on-part: #c3d2c8; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 15px/1.6 var(--f-body);
+  padding-block: 32px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 820px; margin: 0 auto; display: grid; gap: 30px; }
+header { display: grid; gap: 10px; }
+.eyebrow { font: 600 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--silk); }
+h1 { font: 800 clamp(28px, 5vw, 40px)/1.1 var(--f-display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font: 700 20px/1.25 var(--f-display); margin: 0; text-wrap: balance; }
+p { margin: 0; max-width: 68ch; }
+.lede { color: var(--muted); font-size: 16px; }
+code { font-family: var(--f-mono); font-size: .92em; }
+section { display: grid; gap: 14px; }
+.tbl { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font: 600 12px/1.3 var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+td:first-child { color: var(--muted); white-space: nowrap; }
+td.yours { color: var(--fg); font-weight: 500; }
+.fig { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 10px; margin: 0; }
+.fig .scroll { overflow-x: auto; }
+.fig svg { display: block; width: 100%; height: auto; }
+.wrap > *, section > *, .fig > * { min-width: 0; }
+.cap { font-size: 13px; color: var(--muted); }
+ol { margin: 0; padding-left: 22px; display: grid; gap: 10px; max-width: 68ch; }
+ol li::marker { font: 600 14px var(--f-mono); color: var(--silk); }
+ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 68ch; }
+.warn { border-left: 3px solid var(--hot); padding: 4px 0 4px 14px; display: grid; gap: 8px; }
+.warn strong { color: var(--hot); }
+a { color: var(--link); }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.credits { border-top: 1px solid var(--line); padding-top: 22px; }
+.credits li { color: var(--muted); }
+.credits li b { color: var(--fg); font-weight: 600; }
+
+/* SVG paint from tokens */
+.s-board { fill: var(--mask); stroke: var(--mask-edge); stroke-width: .6; }
+.s-conn { fill: var(--part); }
+.s-part { fill: var(--part-2); }
+.s-gold { fill: var(--gold); }
+.s-ind { fill: var(--part-2); stroke: var(--mask-edge); stroke-width: .3; }
+.s-lbl { fill: none; stroke: var(--silk); stroke-width: .4; }
+.s-tape { fill: var(--tape); fill-opacity: .7; stroke: var(--tape-edge); stroke-width: .5; stroke-dasharray: 2 1.2; }
+.s-ring { fill: none; stroke: var(--hot); stroke-width: 1; }
+.s-hotpart { fill: var(--hot); }
+.t-silk { fill: var(--silk); font: 2.6px var(--f-mono); }
+.t-on { fill: var(--on-part); font: 600 2.6px var(--f-mono); }
+.t-hot { fill: var(--hot); font: 700 6px var(--f-body); }
+.t-tape { fill: var(--tape-edge); font: 600 2.6px var(--f-body); }
+.l-hot { stroke: var(--hot); stroke-width: .7; fill: none; }
+.fig img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+.cta { font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Odyssey Neo G9 · newer T-con · OSCAR_T_TCON_MNT</div>
+    <h1>No THA1 on your board? The thermistor is P301.</h1>
+    <p class="lede">The repair videos show the original G9 T-con, with THA1 on a slotted tab in the upper-left corner, above RA13 and RA14. Your board does not match. On the newer board the part to remove is P301, in the top-right corner.</p>
+  </header>
+
+  <section>
+    <h2>Check you have the newer board</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th></th><th>Newer board</th><th>In the videos</th></tr></thead>
+        <tbody>
+          <tr><td>Printed on board</td><td class="yours"><code>OSCAR_T_TCON_MNT</code>, <code>BN41-02934A</code>, upper-left</td><td><code>49DQ_JU11B4H26B_V03_HF</code></td></tr>
+          <tr><td>Sticker</td><td class="yours"><code>BN95-08081A</code> or <code>-B</code> (Neo G9), <code>BN95-07897A</code> or <code>BN95-07925A</code> (G9)</td><td><code>BN96-51198A</code></td></tr>
+          <tr><td>Thermistor</td><td class="yours">P301, top-right, at the edge of the tape strip</td><td>THA1, top-left tab, above RA13 and RA14</td></tr>
+          <tr><td>Reads once removed</td><td class="yours">about 28 to 33 kΩ (Samsung part 1404-001731, 33 kΩ NTC)</td><td>about 10 to 12 kΩ</td></tr>
+          <tr><td>Neo G9 versions</td><td class="yours">CB02 to CF08</td><td>CA01</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap">The version code is on the label on the back of the monitor, as <code>Version No: CC03</code> for example.</p>
+  </section>
+
+  <section>
+    <h2>Where P301 is</h2>
+    <figure class="fig">
+      <div class="scroll">
+        <svg viewBox="-4 -10 168 134" role="img" aria-label="Outline of the whole T-con board, top edge up. P301 is circled in red in the top-right corner, at the lower edge of the tape strip, directly above the tall ribbon connector on the right edge.">
+          <rect class="s-board" x="0" y="0" width="160" height="120" rx="1"/>
+          <rect class="s-lbl" x="32.7" y="5.2" width="9.5" height="9.0" rx=".5"/>
+          <text class="t-silk" x="9.5" y="17.6">PROJECT: OSCAR_T_TCON_MNT</text><text class="t-silk" x="9.5" y="21.2">CODE: BN41-02934A</text><text class="t-silk" x="9.5" y="24.8">DATE: 2021.04.16</text>
+          <rect class="s-conn" x="66" y="1.4" width="17.8" height="7.4" rx=".5"/><text class="t-on" x="68" y="7.0">CN503</text>
+          <rect class="s-conn" x="11.6" y="28.5" width="53.1" height="8.8" rx=".5"/><text class="t-on" x="13.6" y="34.1">CN701</text>
+          <rect class="s-conn" x="0.7" y="42.7" width="8.8" height="29.9" rx=".5"/>
+          <text class="t-silk" x="11" y="58">CN502</text>
+          <rect class="s-conn" x="27.7" y="63.1" width="26.4" height="26.5" rx=".5"/><text class="t-on" x="30.7" y="76.6">T-con chip</text>
+          <rect class="s-gold" x="2.5" y="75.3" width="9.5" height="14.3" rx=".5"/>
+          <rect class="s-gold" x="149.6" y="75.3" width="9.8" height="14.3" rx=".5"/>
+          <rect class="s-conn" x="6.8" y="110.6" width="51.8" height="9.4" rx=".5"/><text class="t-on" x="8.8" y="116.2">CN902</text>
+          <rect class="s-conn" x="101.5" y="110.6" width="53.8" height="9.4" rx=".5"/><text class="t-on" x="103.5" y="116.2">CN901</text>
+          <rect class="s-ind" x="97.4" y="27.1" width="7.5" height="6.8" rx=".5"/>
+          <rect class="s-ind" x="112.4" y="27.1" width="7.5" height="6.8" rx=".5"/>
+          <text class="t-silk" x="97.4" y="36.6">1R5</text><text class="t-silk" x="112.4" y="36.6">1R5</text>
+          <rect class="s-ind" x="121.9" y="28.1" width="10.9" height="12.6" rx=".5"/>
+          <text class="t-silk" x="122.2" y="44">8R2</text>
+          <rect class="s-part" x="138.3" y="26.5" width="6.1" height="8.8" rx=".5"/>
+          <text class="t-silk" x="133.6" y="38.6">PJ1456</text>
+          <rect class="s-conn" x="151.9" y="23.7" width="8.1" height="20.4" rx=".5"/>
+          <text class="t-silk" x="158" y="48" text-anchor="end">ribbon connector</text>
+          <rect class="s-tape" x="90" y="0" width="62.6" height="14.2"/>
+          <path class="s-tape" d="M141,0 L141,-8 L150,-8 L150,0 Z"/>
+          <text class="t-tape" x="92" y="6">tape strip</text><text class="t-tape" x="139" y="-3.5" text-anchor="end">tape flap</text>
+          <rect class="s-part" x="147.1" y="10.6" width="3.0" height="1.6" rx=".5"/>
+          <rect class="s-hotpart" x="147.3" y="13.3" width="1.1" height="2.3"/>
+          <rect class="s-gold" x="147" y="18.3" width="3.5" height="3.0" rx=".5"/>
+          <circle class="s-ring" cx="149.5" cy="15" r="7"/>
+          <path class="l-hot" d="M142.7,16.5 L126,20"/><text class="t-hot" x="124" y="22" text-anchor="end">P301</text>
+          <text class="t-silk" x="2" y="-4">top edge</text>
+        </svg>
+      </div>
+      <figcaption class="cap">Whole board, drawn to scale from a photo of a BN41-02934A board, top edge up, as seen with the board facing you.</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="p301.jpg" width="1400" height="787" alt="Close-up of the top-right corner of the T-con. A red arrow points at a small upright part with a dark body and no printed code, directly above a gold square pad labeled CN703. Labels R354, R352, P301 and R353 are printed to its right.">
+      <figcaption class="cap">The red arrow marks P301, directly above the CN703 pad. Photo from <a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/lv5uecq/" target="_blank" rel="noopener">the r/AskElectronics thread</a> by u/OccasionalBrat, <a href="https://imgur.com/a/BxBGHTp" target="_blank" rel="noopener">original on imgur</a>.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Finding it on your board</h2>
+    <ol>
+      <li>Get to the T-con as in the videos. On the Neo G9 it can sit under a metal bracket in the middle. Leave the ribbon cables plugged in.</li>
+      <li>Look at the <strong>top-right</strong> corner of the board, not the top-left. A strip of tape runs along that edge. Lift it if it covers the corner.</li>
+      <li>Just below the tape, above the tall ribbon connector on the right edge, find the gold square pad labeled <code>CN703</code>.</li>
+      <li>Directly above CN703 is a group of four tiny parts. The leftmost one stands upright, has a dark body, and has no printed code. That part is P301. The other three have printed codes.</li>
+      <li>Remove it the way the videos remove THA1.</li>
+      <li>Measure the removed part. It should read about 28 to 33 kΩ at room temperature. THA1 in the videos reads about 10 kΩ, so a higher number here is correct.</li>
+    </ol>
+    <p>To double-check the spot, look for these labels. <code>ZC503</code> is just above the group. <code>R354</code>, <code>R352</code>, <code>P301</code>, and <code>R353</code> are printed to its right. <code>R507</code>, <code>R505</code>, <code>R504</code>, and <code>R510</code> are to its left, and the 8-pin chip <code>IC702</code> is below and to the left.</p>
+  </section>
+
+  <section class="warn">
+    <p><strong>Results on this board are mixed</strong></p>
+    <p>Among owners who named their board, removing P301 fixed 6 monitors and did not fix 8. Some failures were a shorted capacitor on the small panel boards under the white strip along the bottom edge. Removal permanently disables the T-con's overheat cutoff.</p>
+  </section>
+
+  <section class="credits">
+    <h2>Credits</h2>
+    <ul>
+      <li><b><a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/lv5uecq/" target="_blank" rel="noopener">u/OccasionalBrat</a></b> posted the P301 photo and <a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/mavnzxl/" target="_blank" rel="noopener">pointed out that it is under tape</a>.</li>
+      <li><b><a href="https://www.reddit.com/r/Monitors/comments/1o26wio/" target="_blank" rel="noopener">u/Sblombliz</a></b> photographed the BN95-08081A sticker that tied this board to the Neo G9.</li>
+      <li><b><a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/" target="_blank" rel="noopener">u/alphanimal</a></b> published the original THA1 removal, and <b><a href="https://www.reddit.com/r/ultrawidemasterrace/comments/17lqe5e/comment/k88fr5b/" target="_blank" rel="noopener">u/East_Development_126</a></b> first traced the fault to the thermistor.</li>
+      <li><b><a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen" target="_blank" rel="noopener">danieljbk</a></b> collected all of it in one report. <a href="https://github.com/danieljbk/samsung-odyssey-g9-black-screen/tree/42f718f1f37c9ec7e443d149e312ebaff20cace8" target="_blank" rel="noopener">Initial version, 6 October 2026</a>.</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
