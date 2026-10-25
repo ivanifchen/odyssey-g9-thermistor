@@ -134,11 +134,20 @@ img { border-radius: 3px; }
 .s-tape { fill: var(--tape); fill-opacity: .7; stroke: var(--tape-edge); stroke-width: .5; stroke-dasharray: 2 1.2; }
 .s-ring { fill: none; stroke: var(--hot); stroke-width: 1; }
 .s-hotpart { fill: var(--hot); }
-.t-silk { fill: var(--silk); font: 2.6px ui-monospace, Menlo, monospace; }
-.t-on { fill: var(--on-part); font: 600 2.6px ui-monospace, Menlo, monospace; }
+.s-field { fill: var(--mask); }
+.s-hole { fill: var(--part); }
+.t-silk { fill: var(--silk); font: 3.2px ui-monospace, Menlo, monospace; }
+.t-on { fill: var(--on-part); font: 600 3.2px ui-monospace, Menlo, monospace; }
 .t-hot { fill: var(--hot); font: 700 6px system-ui, sans-serif; }
-.t-tape { fill: var(--tape-edge); font: 600 2.6px system-ui, sans-serif; }
+.t-tape { fill: var(--tape-edge); font: 600 3.2px system-ui, sans-serif; }
 .l-hot { stroke: var(--hot); stroke-width: .7; fill: none; }
+/* close-up: own viewBox, so text and strokes are sized for it */
+svg.detail { max-width: 520px; margin: 18px auto 0; border-radius: 3px; }
+.detail .t-silk, .detail .t-on, .detail .t-tape { font-size: 11px; }
+.detail .t-hot { font-size: 16px; }
+.detail .s-ring { stroke-width: 2; }
+.detail .l-hot { stroke-width: 1.5; }
+.detail .s-tape { stroke-width: 1.2; stroke-dasharray: 5 3; }
 
 /* cats: CSS owns every visual; JS only toggles .is-looking */
 :root {
@@ -221,11 +230,10 @@ img { border-radius: 3px; }
         <svg viewBox="-4 -10 168 134" role="img" aria-label="Outline of the whole T-con board, top edge up. P301 is circled in red in the top-right corner, at the lower edge of the tape strip, directly above the tall ribbon connector on the right edge.">
           <rect class="s-board" x="0" y="0" width="160" height="120" rx="1"/>
           <rect class="s-lbl" x="32.7" y="5.2" width="9.5" height="9.0" rx=".5"/>
-          <text class="t-silk" x="9.5" y="17.6">PROJECT: OSCAR_T_TCON_MNT</text><text class="t-silk" x="9.5" y="21.2">CODE: BN41-02934A</text><text class="t-silk" x="9.5" y="24.8">DATE: 2021.04.16</text>
-          <rect class="s-conn" x="66" y="1.4" width="17.8" height="7.4" rx=".5"/><text class="t-on" x="68" y="7.0">CN503</text>
+          <text class="t-silk" x="9.5" y="18.2">PROJECT: OSCAR_T_TCON_MNT</text><text class="t-silk" x="9.5" y="22.6">CODE: BN41-02934A</text>
+          <rect class="s-conn" x="66" y="1.4" width="17.8" height="7.4" rx=".5"/>
           <rect class="s-conn" x="11.6" y="28.5" width="53.1" height="8.8" rx=".5"/><text class="t-on" x="13.6" y="34.1">CN701</text>
           <rect class="s-conn" x="0.7" y="42.7" width="8.8" height="29.9" rx=".5"/>
-          <text class="t-silk" x="11" y="58">CN502</text>
           <rect class="s-conn" x="27.7" y="63.1" width="26.4" height="26.5" rx=".5"/><text class="t-on" x="30.7" y="76.6">T-con chip</text>
           <rect class="s-gold" x="2.5" y="75.3" width="9.5" height="14.3" rx=".5"/>
           <rect class="s-gold" x="149.6" y="75.3" width="9.8" height="14.3" rx=".5"/>
@@ -233,9 +241,8 @@ img { border-radius: 3px; }
           <rect class="s-conn" x="101.5" y="110.6" width="53.8" height="9.4" rx=".5"/><text class="t-on" x="103.5" y="116.2">CN901</text>
           <rect class="s-ind" x="97.4" y="27.1" width="7.5" height="6.8" rx=".5"/>
           <rect class="s-ind" x="112.4" y="27.1" width="7.5" height="6.8" rx=".5"/>
-          <text class="t-silk" x="97.4" y="36.6">1R5</text><text class="t-silk" x="112.4" y="36.6">1R5</text>
           <rect class="s-ind" x="121.9" y="28.1" width="10.9" height="12.6" rx=".5"/>
-          <text class="t-silk" x="122.2" y="44">8R2</text>
+          <text class="t-on" x="127.35" y="35.6" text-anchor="middle">8R2</text>
           <rect class="s-part" x="138.3" y="26.5" width="6.1" height="8.8" rx=".5"/>
           <text class="t-silk" x="133.6" y="38.6">PJ1456</text>
           <rect class="s-conn" x="151.9" y="23.7" width="8.1" height="20.4" rx=".5"/>
@@ -247,11 +254,41 @@ img { border-radius: 3px; }
           <rect class="s-hotpart" x="147.3" y="13.3" width="1.1" height="2.3"/>
           <rect class="s-gold" x="147" y="18.3" width="3.5" height="3.0" rx=".5"/>
           <circle class="s-ring" cx="149.5" cy="15" r="7"/>
-          <path class="l-hot" d="M142.7,16.5 L126,20"/><text class="t-hot" x="124" y="22" text-anchor="end">P301</text>
-          <text class="t-silk" x="2" y="-4">top edge</text>
+          <path class="l-hot" d="M144.6,20 L128,20"/><text class="t-hot" x="126" y="22" text-anchor="end">P301</text>
+        </svg>
+        <svg class="detail" viewBox="0 0 360 230" role="img" aria-label="Close-up of the circled corner. Under the edge of the tape strip, below the ZC503 pads, is a row of four tiny parts. P301 is the leftmost, an upright part with no printed code, highlighted in red. The labels R354, R352, P301 and R353 are printed to the right of the row, and R510 and R507 to R504 to its left. The square gold CN703 pad is directly below P301, the IC702 chip is below and to the left, and the ribbon connector is at the lower right.">
+          <rect class="s-field" x="0" y="0" width="360" height="230"/>
+          <rect class="s-tape" x="0" y="0" width="330" height="46"/>
+          <text class="t-tape" x="8" y="16">tape strip, lift it</text>
+          <rect class="s-part" x="156" y="16" width="12" height="14" rx="1.5"/>
+          <rect class="s-part" x="180" y="16" width="12" height="14" rx="1.5"/>
+          <text class="t-silk" x="174" y="42" text-anchor="middle">ZC503</text>
+          <text class="t-silk" transform="rotate(-90 30 80)" x="30" y="80">R510</text>
+          <text class="t-silk" transform="rotate(-90 62 80)" x="62" y="80">R507</text>
+          <text class="t-silk" transform="rotate(-90 76 80)" x="76" y="80">R506</text>
+          <text class="t-silk" transform="rotate(-90 90 80)" x="90" y="80">R505</text>
+          <text class="t-silk" transform="rotate(-90 104 80)" x="104" y="80">R504</text>
+          <path class="l-hot" d="M163,88 L163,90 Q163,98 171,98 L236,98"/>
+          <rect class="s-hotpart" x="156" y="54" width="14" height="28" rx="1.5"/>
+          <rect class="s-part" x="178" y="56" width="13" height="24" rx="1.5"/>
+          <rect class="s-part" x="197" y="48" width="24" height="12" rx="1.5"/>
+          <rect class="s-part" x="197" y="64" width="24" height="12" rx="1.5"/>
+          <rect class="s-ring" x="150" y="48" width="26" height="40" rx="4"/>
+          <text class="t-silk" x="230" y="58">R354</text><text class="t-silk" x="230" y="74">R352</text>
+          <text class="t-silk" transform="rotate(-90 274 80)" x="274" y="80">P301</text>
+          <text class="t-silk" transform="rotate(-90 290 80)" x="290" y="80">R353</text>
+          <text class="t-hot" x="240" y="103">P301</text>
+          <text class="t-silk" x="240" y="117">no printed code</text>
+          <rect class="s-gold" x="154" y="110" width="46" height="42" rx="2"/>
+          <circle class="s-hole" cx="177" cy="131" r="4"/>
+          <text class="t-silk" x="206" y="150">CN703</text>
+          <text class="t-silk" x="62" y="154">IC702</text>
+          <rect class="s-conn" x="62" y="160" width="36" height="22" rx="1.5"/>
+          <rect class="s-conn" x="216" y="172" width="144" height="58" rx="1.5"/>
+          <text class="t-on" x="226" y="205">ribbon connector</text>
         </svg>
       </div>
-      <figcaption class="cap">Whole board, drawn to scale from a photo of a BN41-02934A board, top edge up, as seen with the board facing you.</figcaption>
+      <figcaption class="cap">Top: the whole board, drawn to scale from a photo of a BN41-02934A board, top edge up, as seen with the board facing you. Bottom: the circled corner up close, traced from the photo below.</figcaption>
     </figure>
     <figure>
       <img src="odyssey-g9-tcon-p301-thermistor.jpg" width="1400" height="787" alt="Close-up of the top-right corner of the T-con. A red arrow points at a small upright part with a dark body and no printed code, directly above a gold square pad labeled CN703. Labels R354, R352, P301 and R353 are printed to its right.">
