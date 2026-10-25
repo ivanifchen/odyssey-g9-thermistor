@@ -1,6 +1,6 @@
 # Odyssey G9 thermistor (P301)
 
-**Open the page: https://ivanifchen.github.io/odyssey-neo-g9-thermistor/**
+**Open the page: https://ivanifchen.github.io/odyssey-g9-thermistor/**
 
 This page is for people fixing the black-screen fault on a Samsung Odyssey G9 who watched the repair videos and found that their T-con board does not match.
 

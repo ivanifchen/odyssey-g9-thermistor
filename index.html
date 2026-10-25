@@ -3,8 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Odyssey G9 thermistor P301</title>
+<title>Samsung Odyssey G9 black screen fix: thermistor P301 on the BN41-02934A T-con</title>
 <meta name="description" content="Where the black-screen thermistor P301 is on the newer Samsung Odyssey G9 T-con (BN41-02934A), for people who watched the THA1 videos made on the older board.">
+<link rel="canonical" href="https://ivanifchen.github.io/odyssey-g9-thermistor/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ivanifchen.github.io/odyssey-g9-thermistor/">
+<meta property="og:title" content="Samsung Odyssey G9 black screen fix: thermistor P301 on the BN41-02934A T-con">
+<meta property="og:description" content="No THA1 on your Odyssey G9 T-con? On the newer BN41-02934A board the thermistor is P301, in the top-right corner above CN703.">
+<meta property="og:image" content="https://ivanifchen.github.io/odyssey-g9-thermistor/odyssey-g9-tcon-p301-thermistor.jpg">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="787">
+<meta property="og:image:alt" content="Close-up of the Odyssey G9 T-con with a red arrow pointing at thermistor P301 above the CN703 pad.">
+<meta property="article:modified_time" content="2026-10-25">
+<meta name="author" content="Ivan Chen">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
@@ -179,15 +191,16 @@ img { border-radius: 3px; }
 <body>
 <main>
   <header>
-    <h1>No THA1 on your board? The thermistor is <span class="hot">P301</span>.</h1>
-    <p>The repair videos show the older G9 T-con, with THA1 on a slotted tab in the upper-left corner, above RA13 and RA14. Your board does not match. On the newer board the part to remove is P301, in the top-right corner.</p>
+    <h1>No THA1 on your Odyssey G9 T-con? The black-screen thermistor is <span class="hot">P301</span>.</h1>
+    <p>On Samsung Odyssey G9 monitors with the newer T-con board (BN41-02934A, printed OSCAR_T_TCON_MNT), the thermistor behind the black-screen fault is P301, in the top-right corner. The repair videos show the older G9 T-con, where the thermistor is THA1 on a slotted tab in the upper-left corner, above RA13 and RA14.</p>
+    <p class="cap">By Ivan Chen. Updated <time datetime="2026-10-25">25 October 2026</time>.</p>
   </header>
 
   <section>
     <h2>Check you have the newer board</h2>
     <div class="tbl">
       <table>
-        <thead><tr><th></th><th>Newer board</th><th>In the videos</th></tr></thead>
+        <thead><tr><th>Detail</th><th>Newer board</th><th>In the videos</th></tr></thead>
         <tbody>
           <tr><td>Printed on board</td><td><code>OSCAR_T_TCON_MNT</code>, <code>BN41-02934A</code>, upper-left</td><td><code>49DQ_JU11B4H26B_V03_HF</code></td></tr>
           <tr><td>Sticker</td><td><code>BN95-08081A</code>, <code>BN95-08081B</code>, <code>BN95-07897A</code>, or <code>BN95-07925A</code></td><td><code>BN96-51198A</code></td></tr>
@@ -240,7 +253,7 @@ img { border-radius: 3px; }
       <figcaption class="cap">Whole board, drawn to scale from a photo of a BN41-02934A board, top edge up, as seen with the board facing you.</figcaption>
     </figure>
     <figure>
-      <img src="p301.jpg" width="1400" height="787" alt="Close-up of the top-right corner of the T-con. A red arrow points at a small upright part with a dark body and no printed code, directly above a gold square pad labeled CN703. Labels R354, R352, P301 and R353 are printed to its right.">
+      <img src="odyssey-g9-tcon-p301-thermistor.jpg" width="1400" height="787" alt="Close-up of the top-right corner of the T-con. A red arrow points at a small upright part with a dark body and no printed code, directly above a gold square pad labeled CN703. Labels R354, R352, P301 and R353 are printed to its right.">
       <figcaption class="cap">The red arrow marks P301, directly above the CN703 pad. Photo from <a href="https://www.reddit.com/r/AskElectronics/comments/1dyi62v/comment/lv5uecq/" target="_blank" rel="noopener">the r/AskElectronics thread</a> by u/OccasionalBrat, <a href="https://imgur.com/a/BxBGHTp" target="_blank" rel="noopener">original on imgur</a>.</figcaption>
     </figure>
   </section>
