@@ -144,7 +144,10 @@ img { border-radius: 3px; }
 /* close-up: own viewBox, so text and strokes are sized for it */
 svg.detail { max-width: 520px; margin: 18px auto 0; border-radius: 3px; }
 .detail .t-silk, .detail .t-on, .detail .t-tape { font-size: 11px; }
+.detail .t-sm { font-size: 10px; }
+.detail .t-lg { font-size: 13px; }
 .detail .t-hot { font-size: 16px; }
+.s-pin { fill: var(--part-2); }
 .detail .s-ring { stroke-width: 2; }
 .detail .l-hot { stroke-width: 1.5; }
 .detail .s-tape { stroke-width: 1.2; stroke-dasharray: 5 3; }
@@ -257,38 +260,40 @@ svg.detail { max-width: 520px; margin: 18px auto 0; border-radius: 3px; }
           <path class="l-hot" d="M144.6,20 L128,20"/><text class="t-hot" x="126" y="22" text-anchor="end">P301</text>
         </svg>
         <svg class="detail" viewBox="0 0 360 224" role="img" aria-label="Close-up of the circled corner, laid out as in the photo below. Below the two ZC503 pads is a row of four tiny parts. P301 is the leftmost, an upright part with no printed code, highlighted in red. R354 and R352 are printed to the right of the row, then P301 and R353 written sideways. R510 and R507 to R504 are to its left. The square gold CN703 pad is directly below P301, the IC702 chip is below and to the left, and the ribbon connector is at the lower right.">
-          <!-- traced from the photo crop x 560 to 1400, y 0 to 520, at 3/7 unit per pixel -->
+          <!-- traced from the photo crop x 560 to 1400, y 0 to 520, at 3/7 unit per pixel; label sizes follow the photo, which is larger to the right -->
           <rect class="s-field" x="0" y="0" width="360" height="224"/>
           <rect class="s-part" x="158.6" y="17.1" width="12.9" height="17.1" rx="1.5"/>
           <rect class="s-part" x="182.1" y="12.9" width="15" height="17.1" rx="1.5"/>
-          <text class="t-silk" x="177.9" y="44" text-anchor="middle">ZC503</text>
-          <rect class="s-part" x="23.6" y="38.6" width="8.5" height="10.7" rx="1"/>
-          <rect class="s-part" x="59" y="30" width="8" height="12.9" rx="1"/>
-          <rect class="s-part" x="74" y="30" width="8" height="12.9" rx="1"/>
-          <rect class="s-part" x="89" y="30" width="8" height="12.9" rx="1"/>
-          <rect class="s-part" x="103.1" y="30" width="8" height="12.9" rx="1"/>
-          <text class="t-silk" transform="rotate(-90 32.1 85.7)" x="32.1" y="85.7">R510</text>
-          <text class="t-silk" transform="rotate(-90 68.6 79.3)" x="68.6" y="79.3">R507</text>
-          <text class="t-silk" transform="rotate(-90 83.6 77.1)" x="83.6" y="77.1">R506</text>
-          <text class="t-silk" transform="rotate(-90 98.6 75)" x="98.6" y="75">R505</text>
-          <text class="t-silk" transform="rotate(-90 112.3 72.9)" x="112.3" y="72.9">R504</text>
-          <path class="l-hot" d="M167.1,81.5 L167.1,84 Q167.1,92 175.1,92 L236,92"/>
-          <rect class="s-hotpart" x="158.6" y="53.6" width="17.1" height="27.9" rx="1.5"/>
-          <rect class="s-part" x="179.1" y="51.4" width="15.9" height="25.7" rx="1.5"/>
-          <rect class="s-part" x="199.3" y="45" width="30" height="12.9" rx="1.5"/>
-          <rect class="s-part" x="201.4" y="60" width="30" height="13.7" rx="1.5"/>
-          <text class="t-silk" x="235.7" y="47">R354</text><text class="t-silk" x="235.7" y="63.4">R352</text>
-          <text class="t-silk" transform="rotate(-90 282.9 62.1)" x="282.9" y="62.1">P301</text>
-          <text class="t-silk" transform="rotate(-90 308.6 57.9)" x="308.6" y="57.9">R353</text>
+          <text class="t-silk t-lg" x="178.2" y="47.1" text-anchor="middle">ZC503</text>
+          <rect class="s-part" x="23.6" y="37.9" width="8.5" height="13.5" rx="1"/>
+          <rect class="s-part" x="60" y="31.4" width="7.9" height="13.6" rx="1"/>
+          <rect class="s-part" x="76.4" y="28.6" width="7.9" height="14.3" rx="1"/>
+          <rect class="s-part" x="89.3" y="25.7" width="8.6" height="13.6" rx="1"/>
+          <rect class="s-part" x="103.6" y="22.9" width="8.5" height="14.2" rx="1"/>
+          <text class="t-silk t-sm" transform="rotate(-90 30.7 87.1)" x="30.7" y="87.1">R510</text>
+          <text class="t-silk t-sm" transform="rotate(-90 67.9 80)" x="67.9" y="80">R507</text>
+          <text class="t-silk t-sm" transform="rotate(-90 83.6 77.1)" x="83.6" y="77.1">R506</text>
+          <text class="t-silk t-sm" transform="rotate(-90 98.6 75)" x="98.6" y="75">R505</text>
+          <text class="t-silk t-sm" transform="rotate(-90 111.4 72.9)" x="111.4" y="72.9">R504</text>
+          <path class="l-hot" d="M166.5,80.7 L166.5,84 Q166.5,92 174.5,92 L236,92"/>
+          <rect class="s-hotpart" x="160" y="52.9" width="14.3" height="27.8" rx="1.5"/>
+          <rect class="s-part" x="180.7" y="50.7" width="14.3" height="25" rx="1.5"/>
+          <rect class="s-part" x="200" y="45" width="25.7" height="14.3" rx="1.5"/>
+          <rect class="s-part" x="201.4" y="60.7" width="25" height="12.2" rx="1.5"/>
+          <text class="t-silk t-lg" x="236.4" y="49.3">R354</text><text class="t-silk t-lg" x="236.4" y="65">R352</text>
+          <text class="t-silk t-lg" transform="rotate(-90 286.4 59.3)" x="286.4" y="59.3">P301</text>
+          <text class="t-silk t-lg" transform="rotate(-90 308.6 57.9)" x="308.6" y="57.9">R353</text>
           <text class="t-hot" x="240" y="97">P301</text>
           <text class="t-silk" x="240" y="111">no printed code</text>
-          <rect class="s-gold" x="156.4" y="102.9" width="49.3" height="47.1" rx="2"/>
-          <circle class="s-hole" cx="180" cy="127.3" r="4.5"/>
-          <text class="t-silk" x="208.7" y="150">CN703</text>
-          <text class="t-silk" x="79.3" y="136.3">IC702</text>
-          <rect class="s-conn" x="70.7" y="152.1" width="40.7" height="25.7" rx="1.5"/>
-          <rect class="s-conn" x="216.4" y="162.9" width="143.6" height="61.1" rx="1.5"/>
-          <text class="t-on" x="226" y="198">ribbon connector</text>
+          <rect class="s-conn" x="157.5" y="104" width="49.3" height="46" rx="1"/>
+          <rect class="s-gold" x="160.7" y="107.6" width="42.9" height="39.2" rx="1"/>
+          <circle class="s-hole" cx="181.1" cy="127.5" r="3.2"/>
+          <text class="t-silk t-lg" x="208.9" y="151.1">CN703</text>
+          <text class="t-silk" x="85.7" y="136">IC702</text>
+          <path class="s-pin" d="M72,157.4 h7.3 v2.4 h-7.3z M72,162.9 h7.3 v2.4 h-7.3z M72,168.1 h7.3 v2.4 h-7.3z M72,173.4 h7.3 v2.4 h-7.3z M105,157.4 h7.3 v2.4 h-7.3z M105,162.9 h7.3 v2.4 h-7.3z M105,168.1 h7.3 v2.4 h-7.3z M105,173.4 h7.3 v2.4 h-7.3z"/>
+          <rect class="s-conn" x="79.3" y="156.4" width="25.7" height="20.2" rx="1"/>
+          <rect class="s-conn" x="217.3" y="165" width="142.7" height="59" rx="1.5"/>
+          <text class="t-on" x="226" y="199">ribbon connector</text>
         </svg>
       </div>
       <figcaption class="cap">Top: the whole board, drawn to scale from a photo of a BN41-02934A board, top edge up, as seen with the board facing you. Bottom: the circled corner up close, traced from the photo below with parts in the same places.</figcaption>
